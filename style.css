@@ -1,0 +1,88 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+body {
+    background-image: linear-gradient(rgba(126, 33, 33, 0.4), rgba(0, 0, 0, 0.4));
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    position: relative;
+    height: 100vh;
+}
+.screen {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.dice {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-60%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.J-0 {
+    float: left;
+    height: 500px;
+    padding:100px;
+}   
+.J-1 {
+    float: right;
+    height: 500px;
+    padding:100px;
+}
+
+.joueur {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+   
+}
+
+.score-total {
+    text-align: center;
+    font-size: 80px;
+    color: #EB4D4D;
+}
+.JEC{
+    font-size: size 20px;
+    text-align: center;
+}
+.SEC{
+    color:blue;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+button {
+    width: 200px;
+    color:black;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.btn-roll{
+    margin-bottom: 30px;
+}
+.btn-hold{
+    margin-bottom:30px;
+}
+.active{
+    font-weight: bold;
+    background-color:whitesmoke;
+}
