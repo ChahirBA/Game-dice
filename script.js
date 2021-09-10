@@ -1,45 +1,41 @@
-var activePlayer, roundScore, dicer, scores
-init()
+var activePlayer, roundScore, dicer, scores ;
+init();
+
+//lancer le dé pour determiner le score en cours
+
 $('.btn-roll').on('click', function () {
-    if (activePlayer === 0)
-    activePlayer=1
-    else
-    activePlayer=0
     
     var N1 =(Math.random()*6)+1
     dicer =Math.trunc(N1)
     document.getElementById('dice1').src = 'dice' + dicer + '.png'
-    roundScore=0
-    roundScore += dicer
-    $('#sec'+ activePlayer).text(roundScore)
-    console.log(roundScore)
-    console.log(activePlayer)
-   
-    $( '.J-0').toggleClass( 'active' );
-    $( '.J-1').toggleClass( 'active' );
-
-
-    
-})
-
-
-$('.btn-hold').on('click', function () {
-            
-
-    scores[activePlayer]+=roundScore
-    $('#score'+ activePlayer ).text(scores[activePlayer])
-
+    roundScore = 0
+    if(dicer === 1) {   
+        nextPlayer()
+    } else {
+        roundScore += dicer;
+        $('#sec'+ activePlayer).text(roundScore)
+    }
+  
+    console.log(activePlayer) 
     console.log(scores)
     console.log(roundScore)
+  
+})
+
+//ajouter le score en cours au score global 
+
+$('.btn-hold').on('click', function () {
+       
+    scores[activePlayer]+=roundScore
+    $('#score'+ activePlayer ).text(scores[activePlayer])
     if (scores[activePlayer]>=100){
     $('#joueur' + activePlayer).text('Winner!')
+   } else{
+       nextPlayer()
    }
 })
-function init() {
 
-    scores = [0, 0]
-  
-}
+//remise a zero et lancer un nouveau jeu 
 
 $(".btn-new").on('click', function(){
 
@@ -59,4 +55,23 @@ $(".btn-new").on('click', function(){
 
 }
 )
+//initialisation
+function init() {
+
+    scores = [0, 0];
+    activePlayer = 0 
+  
+}
+// changement de joueur 
+function nextPlayer() {
+    
+  if (activePlayer === 0){
+      activePlayer = 1 
+  }else {
+      activePlayer = 0 
+  }
+    $( '.J-0').toggleClass( 'active' )
+    $( '.J-1').toggleClass( 'active' )
+}
+
 
